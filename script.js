@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('generate-btn').addEventListener('click', () => {
-        const characterList = document.getElementById('character-list');
+        const characterList = document.getElementById("character-list");
         characterList.innerHTML = '';
 
         const costGroups = document.querySelectorAll('.cost-group');
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (character) {
                     const listItem = document.createElement('li');
                     const stars = '★'.repeat(cost);
-                    listItem.textContent = `${character} (${stars})`;
+                    listItem.innerHTML = `<a href="https://www.google.com/search?hl=fr&tbm=isch&q=${encodeURIComponent(character + ' Sparking Zero')}" target="_blank">${character} (${stars})</a>`;
                     characterList.appendChild(listItem);
                     totalCost += cost;
                 } else {
