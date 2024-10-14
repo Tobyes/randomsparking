@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <button class="remove-cost">Delete</button>
         `;
         costsContainer.appendChild(newCostGroup);
-
-        // Ajouter un événement de suppression pour le bouton
         newCostGroup.querySelector('.remove-cost').addEventListener('click', () => {
             costsContainer.removeChild(newCostGroup);
         });
@@ -34,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         characterList.innerHTML = '';
 
         const costGroups = document.querySelectorAll('.cost-group');
-        const usedCharacters = new Set(); // Set pour stocker les personnages déjà tirés
-        let totalCost = 0; // Coût total
+        const usedCharacters = new Set();
+        let totalCost = 0;
 
         costGroups.forEach(group => {
             const cost = parseInt(group.querySelector('.cost').value);
@@ -47,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const stars = '★'.repeat(cost);
                     listItem.textContent = `${character} (${stars})`;
                     characterList.appendChild(listItem);
-                    totalCost += cost; // Ajouter le coût au total
+                    totalCost += cost;
                 } else {
                     alert('Tous les personnages de ce coût ont déjà été tirés.');
                 }
@@ -56,10 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Afficher le coût total
         document.getElementById('total-cost').textContent = `Total Cost: ${totalCost}`;
 
-        // Afficher le titre et la liste des personnages
         document.getElementById('pulled-title').classList.remove('hidden');
         characterList.classList.remove('hidden');
     });
@@ -69,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const availableCharacters = stringDict[cost].filter(character => !usedCharacters.has(character));
             if (availableCharacters.length > 0) {
                 const character = availableCharacters[Math.floor(Math.random() * availableCharacters.length)];
-                usedCharacters.add(character); // Ajouter le personnage tiré à l'ensemble
+                usedCharacters.add(character);
                 return character;
             }
         }
-        return null; // Retourne null si aucun personnage n'est disponible
+        return null;
     }
 });
