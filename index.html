@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choix de Personnages</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sparking Zero Character Randomizer</h1>
+
+        <div id="costs-container">
+            <div class="cost-group">
+                <label for="cost">DP</label>
+                <input type="number" class="cost" min="1" max="10" value="1">
+                <button class="remove-cost">Delete</button>
+            </div>
+        </div>
+        <button id="add-cost">Add Character</button> <br> <br>
+
+        <button id="generate-btn">Generate</button>
+        <h2 id="pulled-title" class="hidden">Pulled</h2>
+        <div id="character-list"></div>
+        <div id="total-cost"></div> <!-- Ajout de l'élément pour le coût total -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
